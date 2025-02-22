@@ -36,6 +36,9 @@ type Node struct {
 }
 
 func (n *Node) Send(msg *Message) {
+	// Add a random delay to simulate network latency
+	time.Sleep(time.Duration(rand.Intn(500)) * time.Millisecond)
+
 	n.Ch <- msg
 
 	// For counting the total number of messages sent
