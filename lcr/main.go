@@ -114,7 +114,7 @@ func NewRing(N int) *Ring {
 	}
 
 	// Create N nodes with unique UIDs
-	for i := 0; i < N; i++ {
+	for i := range N {
 		var UID int
 		for {
 			// Generate a random UID
@@ -133,7 +133,7 @@ func NewRing(N int) *Ring {
 	}
 
 	// Connect the nodes
-	for i := 0; i < N; i++ {
+	for i := range N {
 		nodes[i].ClockwiseNeighbor = nodes[(i+1)%N]
 	}
 

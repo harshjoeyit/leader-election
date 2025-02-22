@@ -21,6 +21,17 @@ The LCR algorithm works as follows:
 *   **Concurrency:** Each node runs in its own goroutine, allowing for concurrent message processing.
 *   **Channels:** Channels are used for communication between nodes. Buffered channels are used to prevent blocking.
 
+## Best and Worst case
+The message complexity of algorithm is O(n^2)
+
+#### Best case:
+- Ring: `1 --> 2 --> 3 --> 4 .....100 --> 1`
+- Number of messages exchanged: 299
+
+#### Worst case:
+- Ring: `100 --> 99 --> 98 --> 97 .....2 --> 1`
+- Number of messages exchanged = 5150
+
 ## Example
 
 To run the simulation with 5 nodes:
@@ -28,3 +39,4 @@ To run the simulation with 5 nodes:
 ```bash
 go run main.go -nodes 5
 ```
+
